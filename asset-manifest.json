@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/confusion-matrix/static/css/main.5cd076c1.css",
+    "main.js": "/confusion-matrix/static/js/main.4422f88a.js",
+    "index.html": "/confusion-matrix/index.html",
+    "main.5cd076c1.css.map": "/confusion-matrix/static/css/main.5cd076c1.css.map",
+    "main.4422f88a.js.map": "/confusion-matrix/static/js/main.4422f88a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cd076c1.css",
+    "static/js/main.4422f88a.js"
+  ]
+}
