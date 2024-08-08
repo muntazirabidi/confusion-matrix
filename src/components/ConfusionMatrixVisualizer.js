@@ -18,7 +18,7 @@ const ConfusionMatrixVisualizer = () => {
 
   const getColor = (value) => {
     const hue = ((value / 100) * 120).toString(10);
-    return ["hsl(", hue, ",100%,50%)"].join("");
+    return `hsl(${hue}, 100%, 50%)`;
   };
 
   const chartOptions = {
@@ -37,8 +37,8 @@ const ConfusionMatrixVisualizer = () => {
         },
         padding: {
           top: 10,
-          bottom: 30
-        }
+          bottom: 30,
+        },
       },
       tooltip: {
         titleFont: {
@@ -65,7 +65,7 @@ const ConfusionMatrixVisualizer = () => {
           font: {
             size: 12,
           },
-          callback: function(value) {
+          callback: function (value) {
             return value + '%';
           },
         },
@@ -100,7 +100,7 @@ const ConfusionMatrixVisualizer = () => {
   return (
     <div className="p-4 max-w-7xl mx-auto bg-gray-100">
       <h1 className="text-3xl font-bold mb-6 text-center">Confusion Matrix Visualizer</h1>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="bg-white rounded-lg shadow-md p-4">
           <h2 className="text-xl font-semibold mb-4">Confusion Matrix</h2>
@@ -123,7 +123,7 @@ const ConfusionMatrixVisualizer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="bg-white rounded-lg shadow-md p-4">
           <h2 className="text-xl font-semibold mb-4">Adjust Values</h2>
           <div className="space-y-4">
@@ -144,12 +144,13 @@ const ConfusionMatrixVisualizer = () => {
                   }}
                   className="w-full"
                 />
+                <div className="text-right text-sm">{index === 0 ? tp : index === 1 ? tn : index === 2 ? fp : fn}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         <MetricCard
           title="Accuracy"
@@ -172,14 +173,14 @@ const ConfusionMatrixVisualizer = () => {
           description="Harmonic mean of precision and recall"
         />
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div style={{ height: '400px' }}>
           <Bar data={metricsComparisonData} options={chartOptions} />
         </div>
         <p className="mt-4 text-sm text-gray-600">This bar chart compares the different evaluation metrics side by side.</p>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-md p-4">
         <h2 className="text-xl font-semibold mb-4">Understanding the Metrics</h2>
         <div className="space-y-2">
@@ -189,7 +190,7 @@ const ConfusionMatrixVisualizer = () => {
           <p><strong>F1 Score:</strong> The harmonic mean of precision and recall, providing a single score that balances both metrics.</p>
         </div>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-md p-4 mt-6">
         <h2 className="text-xl font-semibold mb-4">Error Types Explanation</h2>
         <div className="space-y-2">
